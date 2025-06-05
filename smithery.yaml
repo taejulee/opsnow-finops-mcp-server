@@ -1,0 +1,16 @@
+type: stdio
+configSchema:
+  type: object
+  properties:
+    license:
+      type: string
+  required:
+    - license
+commandFunction: |
+  (config) => ({
+    command: ['node', 'build/index.js'],
+    args: [],
+    env: {
+      LICENSE: config.license
+    }
+  })
