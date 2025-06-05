@@ -1,10 +1,9 @@
 {
   "name": "opsnow-finops-mcp-server",
   "version": "1.0.0",
-  "main": "index.js",
-  "bin": {
-    "finops": "./build/index.js"
-  },
+  "module": "src/index.ts",
+  "main": "build/index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "start": "node --loader ts-node/esm src/index.ts"
@@ -12,10 +11,10 @@
   "files": [
     "build"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": ["finops", "mcp", "server", "opsnow"],
+  "author": "OpsNow",
   "license": "ISC",
-  "description": "",
+  "description": "OpsNow FinOps MCP Server - Model Context Protocol implementation for FinOps",
   "devDependencies": {
     "@types/node": "^22.10.0",
     "typescript": "^5.7.2"
