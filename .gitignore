@@ -14,6 +14,3 @@ Thumbs.db
 
 # Custom directories
 wpdhl/
-
-# Ignore package-lock.json
-package-lock.json
