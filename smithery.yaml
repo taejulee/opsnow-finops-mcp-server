@@ -1,3 +1,4 @@
+runtime: "typescript"
 type: streamable-http
 configSchema:
   type: object
