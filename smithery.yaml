@@ -1,4 +1,4 @@
-type: stdio
+type: streamable-http
 configSchema:
   type: object
   properties:
