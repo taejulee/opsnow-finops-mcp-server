@@ -1,10 +1,8 @@
 {
   "name": "opsnow-finops-mcp-server",
   "version": "1.0.0",
-  "main": "index.js",
-  "bin": {
-    "cost": "./build/index.js"
-  },
+  "main": "./build/index.js",
+  "module": "./src/index.ts",
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "start": "node --loader ts-node/esm src/index.ts"
