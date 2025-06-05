@@ -9,11 +9,6 @@ configSchema:
 build:
   - npm install
   - npm run build
-commandFunction: |
-  (config) => ({
-    command: ['node', 'build/index.js'],
-    args: [],
-    env: {
-      LICENSE_KEY: config.license
-    }
-  })
+handler: build/index.js
+env:
+  LICENSE_KEY: config.license
