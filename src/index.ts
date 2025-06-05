@@ -1,11 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import path from "node:path";
 import * as dotenv from "dotenv";
 import axios from 'axios';
 import https from 'node:https';
-import { randomUUID } from "node:crypto";
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 // API Server URL
@@ -668,15 +667,12 @@ server.tool(
 async function main() {
   const args = process.argv.slice(2);
 
-  const transport = new StreamableHTTPServerTransport({
-    sessionIdGenerator: () => randomUUID(),
-  });
+  const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Cloud FinOps MCP Server running on streamable-http");
+  console.error("Cloud FinOps MCP Server running on stdio");
 }
 
 main().catch((error) => {
   console.error("Fatal error in main():", error);
   process.exit(1);
 });
-

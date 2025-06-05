@@ -1,5 +1,4 @@
-runtime: typescript
-type: streamable-http
+type: stdio
 configSchema:
   type: object
   properties:
@@ -7,9 +6,11 @@ configSchema:
       type: string
   required:
     - license
-build:
-  - npm install
-  - npm run build
-handler: build/index.js
-env:
-  LICENSE_KEY: config.license
+commandFunction: |
+  (config) => ({
+    command: ['node', 'build/index.js'],
+    args: [],
+    env: {
+      LICENSE_KEY: config.license
+    }
+  })
