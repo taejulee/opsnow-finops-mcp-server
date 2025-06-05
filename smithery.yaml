@@ -6,11 +6,14 @@ configSchema:
       type: string
   required:
     - license
+build:
+  - npm install
+  - npm run build
 commandFunction: |
   (config) => ({
     command: ['node', 'build/index.js'],
     args: [],
     env: {
-      LICENSE: config.license
+      LICENSE_KEY: config.license
     }
   })
